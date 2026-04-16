@@ -38,6 +38,24 @@
 	}
 }
 
+.headerRightSide {
+	display: flex;
+	margin-left: auto;
+	gap: 16px;
+}
+
+.githubLink {
+	color: var(--muted);
+	display: grid;
+	place-items: center;
+	align-self: center;
+	transition: color 0.15s;
+
+	&:hover {
+		color: var(--text);
+	}
+}
+
 .versionTag {
 	margin-left: auto;
 	font-size: 10px;
@@ -45,5 +63,4 @@
 	letter-spacing: 1px;
 	border: 1px solid var(--border);
 	padding: 4px 10px;
-	align-self: center;
 }
