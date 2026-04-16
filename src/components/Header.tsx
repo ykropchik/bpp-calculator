@@ -4,10 +4,10 @@ import styles from './Header.module.scss';
 function Header() {
 	return (
 		<header className={styles.header}>
-			<div className={styles.logoMark}><span>BPP</span></div>
-			<div className={styles.headerText}>
-				<h1>Bits Per Pixel</h1>
-			</div>
+			<div className={styles.logoMark}>BPP</div>
+			<h1 className={styles.headerText}>
+				Bits Per Pixel
+			</h1>
 			<div className={styles.headerRightSide}>
 				<a
 					className={styles.githubLink}

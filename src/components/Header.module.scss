@@ -12,30 +12,27 @@
 }
 
 .logoMark {
-	width: 48px;
-	height: 48px;
+	width: 64px;
+	height: 64px;
 	background: var(--accent);
-	display: grid;
-	place-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	flex-shrink: 0;
-
-	span {
-		font-family: 'Syne', sans-serif;
-		font-weight: 800;
-		font-size: 18px;
-		color: #000;
-		letter-spacing: -1px;
-	}
+	font-family: 'Syne', sans-serif;
+	font-weight: 800;
+	font-size: 18px;
+	color: #000;
+	letter-spacing: -1px;
 }
 
 .headerText {
-	h1 {
-		font-family: 'Syne', sans-serif;
-		font-size: 28px;
-		font-weight: 800;
-		letter-spacing: -0.5px;
-		line-height: 1;
-	}
+	font-family: 'Syne', sans-serif;
+	font-size: 32px;
+	font-weight: 800;
+	letter-spacing: -0.5px;
+	line-height: 1;
+	margin: 0;
 }
 
 .headerRightSide {
