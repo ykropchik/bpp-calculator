@@ -1,5 +1,6 @@
 import React, { type RefObject } from 'react';
 import type { ImageInfo } from '../types';
+import styles from './PreviewSection.module.scss';
 
 type Props = {
 	imageInfo: ImageInfo;
@@ -46,23 +47,23 @@ function PreviewSection({
 				: 'var(--accent)';
 
 	return (
-		<div className="preview-section">
-			<div className="preview-grid">
-				<div className="preview-panel">
-					<span className="panel-label">Original</span>
+		<div className={styles.previewSection}>
+			<div className={styles.previewGrid}>
+				<div className={styles.previewPanel}>
+					<span className={styles.panelLabel}>Original</span>
 					<canvas ref={origCanvasRef} />
 				</div>
-				<div className="preview-panel">
-					<span className="panel-label">Render Size</span>
+				<div className={styles.previewPanel}>
+					<span className={styles.panelLabel}>Render Size</span>
 					<canvas ref={renderCanvasRef} />
 				</div>
 			</div>
 
-			<div className="controls-panel">
-				<div className="control-row">
-					<span className="control-label">Render Size</span>
-					<div className="dim-inputs">
-						<div className="dim-field">
+			<div className={styles.controlsPanel}>
+				<div className={styles.controlRow}>
+					<span className={styles.controlLabel}>Render Size</span>
+					<div className={styles.dimInputs}>
+						<div className={styles.dimField}>
 							<label>W</label>
 							<input
 								type="number"
@@ -73,7 +74,7 @@ function PreviewSection({
 							/>
 						</div>
 						<button
-							className={`lock-btn${locked ? ' locked' : ''}`}
+							className={`${styles.lockBtn}${locked ? ` ${styles.locked}` : ''}`}
 							onClick={onLockToggle}
 							title="Keep aspect ratio"
 						>
@@ -86,7 +87,7 @@ function PreviewSection({
 								/>
 							</svg>
 						</button>
-						<div className="dim-field">
+						<div className={styles.dimField}>
 							<label>H</label>
 							<input
 								type="number"
@@ -104,32 +105,32 @@ function PreviewSection({
 				</div>
 			</div>
 
-			<div className="metrics-panel">
-				<div className="metrics-grid">
-					<div className="metric-card highlight">
-						<div className="metric-label">BPP</div>
-						<div className="metric-val">{bpp < 10 ? bpp.toFixed(3) : bpp.toFixed(1)}</div>
-						<div className="metric-unit">bits / pixel</div>
+			<div className={styles.metricsPanel}>
+				<div className={styles.metricsGrid}>
+					<div className={`${styles.metricCard} ${styles.highlight}`}>
+						<div className={styles.metricLabel}>BPP</div>
+						<div className={styles.metricVal}>{bpp < 10 ? bpp.toFixed(3) : bpp.toFixed(1)}</div>
+						<div className={styles.metricUnit}>bits / pixel</div>
 					</div>
-					<div className="metric-card">
-						<div className="metric-label">Render W×H</div>
-						<div className="metric-val">
+					<div className={styles.metricCard}>
+						<div className={styles.metricLabel}>Render W×H</div>
+						<div className={styles.metricVal}>
 							{rw}
 							×
 							{rh}
 						</div>
-						<div className="metric-unit">pixels</div>
+						<div className={styles.metricUnit}>pixels</div>
 					</div>
-					<div className="metric-card">
-						<div className="metric-label">File Size</div>
-						<div className="metric-val">{fsVal}</div>
-						<div className="metric-unit">{fsUnit}</div>
+					<div className={styles.metricCard}>
+						<div className={styles.metricLabel}>File Size</div>
+						<div className={styles.metricVal}>{fsVal}</div>
+						<div className={styles.metricUnit}>{fsUnit}</div>
 					</div>
 				</div>
 			</div>
 
-			<div className="bpp-visual">
-				<table className="info-table">
+			<div className={styles.bppVisual}>
+				<table className={styles.infoTable}>
 					<tbody>
 						<tr>
 							<td>Original size</td>
@@ -163,10 +164,10 @@ function PreviewSection({
 						</tr>
 					</tbody>
 				</table>
-				<div className="formula-note">
+				<div className={styles.formulaNote}>
 					Formula:
 					{' '}
-					<span className="accent">
+					<span className={styles.accent}>
 						BPP = (File size in bits) / (Display Width × Display Height)
 					</span>
 				</div>

@@ -1,0 +1,280 @@
+.previewSection {
+	animation: fadeSlideIn 0.4s ease;
+}
+
+@keyframes fadeSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+// Preview canvases
+
+.previewGrid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2px;
+	margin-bottom: 32px;
+
+	@media (max-width: 600px) {
+		grid-template-columns: 1fr;
+	}
+}
+
+.previewPanel {
+	background: var(--surface);
+	position: relative;
+
+	canvas {
+		width: 100%;
+		display: block;
+		max-height: 280px;
+		object-fit: contain;
+		background: #080808;
+	}
+}
+
+.panelLabel {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	font-size: 9px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--muted);
+	background: var(--surface);
+	padding: 2px 6px;
+	border: 1px solid var(--border);
+	z-index: 2;
+}
+
+// Controls
+
+.controlsPanel {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	padding: 28px 32px;
+	margin-bottom: 2px;
+}
+
+.controlRow {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+
+	@media (max-width: 600px) {
+		flex-wrap: wrap;
+	}
+}
+
+.controlLabel {
+	font-size: 10px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--muted);
+	min-width: 100px;
+}
+
+.dimInputs {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	flex: 1;
+}
+
+.dimField {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex: 1;
+
+	label {
+		font-size: 10px;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: var(--muted);
+		min-width: 14px;
+	}
+
+	input[type='number'] {
+		flex: 1;
+		background: var(--bg);
+		border: 1px solid var(--border);
+		color: var(--accent);
+		font-family: 'Syne', sans-serif;
+		font-weight: 700;
+		font-size: 15px;
+		padding: 8px 12px;
+		outline: none;
+		width: 100%;
+		transition: border-color 0.15s;
+		appearance: textfield;
+
+		&::-webkit-inner-spin-button,
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+		}
+
+		&:focus {
+			border-color: var(--accent);
+		}
+	}
+}
+
+.lockBtn {
+	background: none;
+	border: 1px solid var(--border);
+	color: var(--muted);
+	cursor: pointer;
+	width: 34px;
+	height: 34px;
+	display: grid;
+	place-items: center;
+	flex-shrink: 0;
+	transition: all 0.15s;
+	padding: 0;
+
+	&:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+
+	&.locked {
+		border-color: var(--accent);
+		color: var(--accent);
+		background: #e8ff4710;
+	}
+}
+
+// Metrics
+
+.metricsPanel {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-top: none;
+	padding: 28px 32px;
+	margin-bottom: 32px;
+}
+
+.metricsGrid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 2px;
+
+	@media (max-width: 600px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.metricCard {
+	background: var(--bg);
+	padding: 20px 16px;
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 24px;
+		height: 24px;
+		background: var(--surface);
+		clip-path: polygon(100% 0, 100% 100%, 0 100%);
+		opacity: 0.3;
+	}
+
+	&.highlight {
+		background: var(--accent);
+
+		.metricLabel {
+			color: #000a;
+		}
+
+		.metricVal {
+			color: #000;
+		}
+
+		.metricUnit {
+			color: #0007;
+		}
+	}
+}
+
+.metricLabel {
+	font-size: 9px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: var(--muted);
+	margin-bottom: 8px;
+}
+
+.metricVal {
+	font-family: 'Syne', sans-serif;
+	font-size: 22px;
+	font-weight: 800;
+	color: var(--text);
+	line-height: 1;
+	word-break: break-all;
+}
+
+.metricUnit {
+	font-size: 10px;
+	color: var(--muted);
+	margin-top: 4px;
+}
+
+// Info table
+
+.bppVisual {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	border-top: none;
+	padding: 28px 32px;
+	margin-bottom: 32px;
+}
+
+.infoTable {
+	background: var(--surface);
+	border: 1px solid var(--border);
+	width: 100%;
+	border-collapse: collapse;
+
+	td {
+		padding: 12px 20px;
+		font-size: 12px;
+		border-bottom: 1px solid var(--border);
+
+		&:first-child {
+			color: var(--muted);
+			letter-spacing: 1px;
+			font-size: 10px;
+			text-transform: uppercase;
+			width: 40%;
+			border-right: 1px solid var(--border);
+		}
+	}
+
+	tr:last-child td {
+		border-bottom: none;
+	}
+}
+
+.formulaNote {
+	font-size: 10px;
+	color: var(--muted);
+	letter-spacing: 1px;
+	padding: 16px 0 0;
+	border-top: 1px solid var(--border);
+	margin-top: 16px;
+}
+
+.accent {
+	color: var(--accent);
+}

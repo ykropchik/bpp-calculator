@@ -3,6 +3,7 @@ import type { ImageInfo } from './types';
 import Header from './components/Header';
 import UploadZone from './components/UploadZone';
 import PreviewSection from './components/PreviewSection';
+import styles from './App.module.scss';
 
 function App() {
 	const [imageInfo, setImageInfo] = useState<ImageInfo | null>(null);
@@ -63,7 +64,7 @@ function App() {
 	};
 
 	return (
-		<div className="wrapper">
+		<div className={styles.wrapper}>
 			<Header />
 			<UploadZone onFile={handleFile} />
 			{imageInfo && (

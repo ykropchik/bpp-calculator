@@ -1,0 +1,49 @@
+.header {
+	display: flex;
+	align-items: flex-end;
+	gap: 20px;
+	margin-bottom: 56px;
+	border-bottom: 1px solid var(--border);
+	padding-bottom: 24px;
+
+	@media (max-width: 600px) {
+		flex-wrap: wrap;
+	}
+}
+
+.logoMark {
+	width: 48px;
+	height: 48px;
+	background: var(--accent);
+	display: grid;
+	place-items: center;
+	flex-shrink: 0;
+
+	span {
+		font-family: 'Syne', sans-serif;
+		font-weight: 800;
+		font-size: 18px;
+		color: #000;
+		letter-spacing: -1px;
+	}
+}
+
+.headerText {
+	h1 {
+		font-family: 'Syne', sans-serif;
+		font-size: 28px;
+		font-weight: 800;
+		letter-spacing: -0.5px;
+		line-height: 1;
+	}
+}
+
+.versionTag {
+	margin-left: auto;
+	font-size: 10px;
+	color: var(--muted);
+	letter-spacing: 1px;
+	border: 1px solid var(--border);
+	padding: 4px 10px;
+	align-self: center;
+}
